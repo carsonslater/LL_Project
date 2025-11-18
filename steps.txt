@@ -1,0 +1,25 @@
+# Steps
+
+pip install django
+
+# period is important
+django-admin startproject learning_log .
+
+python manage.py migrate
+
+python manage.py runserver
+
+Then go to debugger -> open a .json module file and then make it a Django file
+
+python manage.py migrate
+
+python manage.py startapp MainApp
+
+# Make a migration file, and then migrate that file
+# Whenever you make changes to the model final, you need to apply it to the whole database
+
+
+python manage.py createsuperuser
+
+
+urls map to views, and views map to index files
