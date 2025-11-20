@@ -23,3 +23,7 @@ python manage.py createsuperuser
 
 adding a webpage:
 urls map to views, and views map to index files (HTML template)
+
+FOR VIEWS:
+in topics for keys, they represents variable name used in the template, and
+values are the variable name used in the view
