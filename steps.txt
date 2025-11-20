@@ -21,5 +21,5 @@ python manage.py startapp MainApp
 
 python manage.py createsuperuser
 
-
-urls map to views, and views map to index files
+adding a webpage:
+urls map to views, and views map to index files (HTML template)
