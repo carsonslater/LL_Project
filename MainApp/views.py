@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from
+from forms import *
+from .models import *
+
 
 # Create your views here.
 def index(request):
@@ -23,10 +25,14 @@ def topic(request, topic_id):
 
     return render(request, "MainApp/")
 
+
 def new_topic(request):
     if request.method != "POST":
         form = TopicForm()
     else:
-        form = TopicForm(data = request.POST)
+        form = TopicForm(data=request.POST)
 
         if form.is_valid():
+            form.save()
+
+            return redirect("MainApp:topics")
