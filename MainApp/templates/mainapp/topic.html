@@ -9,6 +9,9 @@
     <li>
         <p>{{entry.text}}</p>
         <p>{{entry.date_added}}</p>
+        <p>
+            <a href="{% url 'MainApp:edit_entry' entry.id %}">Edit entry</a>
+        </p>
     </li>
     {% empty %}
     <li>There are no entries for this topic.</li>
