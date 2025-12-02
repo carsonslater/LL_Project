@@ -10,9 +10,13 @@
         <p>{{entry.text}}</p>
         <p>{{entry.date_added}}</p>
     </li>
+    {% empty %}
+    <li>There are no entries for this topic.</li>
+    {% endfor %}
 </ul>
 
-{% empty %}
-<li>There are no entries for this topic.</li>
+<p>
+    <a href="{% url 'MainApp:new_entry' topic.id %}">Add a new entry</a>
+</p>
 
 {% endblock content %}
