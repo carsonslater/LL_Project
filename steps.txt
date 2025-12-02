@@ -26,4 +26,6 @@ urls map to views, and views map to index files (HTML template)
 
 FOR VIEWS:
 in topics for keys, they represents variable name used in the template, and
-values are the variable name used in the view
+values are the variable name used in the view "topic_id" vs "topic.id"
+
+When creating a new instance of a form, commit = FALSE does not save the form to the database.
