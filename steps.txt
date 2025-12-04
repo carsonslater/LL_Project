@@ -39,3 +39,8 @@ Setting up user accounts:
 - python manage.py startapp users
 
 Every app comes with urls
+
+
+Allowing users to own their data
+
+- we can use a decorator, which only allows users to access pages in a login
