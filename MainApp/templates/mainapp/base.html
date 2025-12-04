@@ -1,7 +1,15 @@
+{% if user.is_authenticated %}
+Hello, {{user.username}}.
+
+
 <p>
     <a href="{% url 'MainApp:index' %}">Learning Log</a>
     <a href="{% url 'MainApp:topics' %}">Topics</a>
 </p>
+
+{% else %}
+
+<a href="{% url 'users:login' %}">Log in</a>
 
 {% block content %}
 
