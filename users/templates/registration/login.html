@@ -2,6 +2,7 @@
 
 {% block content %}
 
+{% if form.errors %}
 <p>Your username and password did not match. Please try again.
 </p>
 
@@ -11,7 +12,7 @@
     {% csrf_token%}
     {{form.as_p}}
 
-    <buttom name="submit">Log in</buttom>
+    <button name="submit">Log in</button>
     <input type="hidden" name="next" value="{% url 'MainApp:index' %}">
 </form>
 
