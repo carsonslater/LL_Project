@@ -1,0 +1,16 @@
+{% extends "MainApp/base.html" %}
+
+{% block content %}
+
+<p>Your username and password did not match. Please try again.
+</p>
+
+{% endif %}
+
+<form action="{% url 'users:login' %}" method="POST">
+    {% csrf_token%}
+    {{form.as_p}}
+
+    <buttom name="submit">Log in</buttom>
+    <input type="hidden" name="next" value="{% url 'MainApp:index' %}">
+</form>
