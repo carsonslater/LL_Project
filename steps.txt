@@ -37,3 +37,5 @@ Setting up user accounts:
 
 
 - python manage.py startapp users
+
+Every app comes with urls
