@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from MainApp.forms import *
 from .models import *
+from django.http import Http404
 
 
 # Create your views here.
@@ -11,7 +12,7 @@ def index(request):
 
 @login_required
 def topics(request):
-    topics = Topic.objects.all()
+    topics = Topic.objects.filter(owner=request.user).order_by("date_added")
 
     context = {"T": topics}
 
@@ -21,6 +22,9 @@ def topics(request):
 @login_required
 def topic(request, topic_id):
     t = Topic.objects.get(id=topic_id)
+
+    if t.owner != request.user:
+        raise Http404
 
     entries = Entry.objects.filter(topic=t).order_by("-date_added")
 
@@ -37,7 +41,9 @@ def new_topic(request):
         form = TopicForm(data=request.POST)
 
         if form.is_valid():
-            form.save()
+            new_topic = form.save(commit=False)
+            new_topic.owner = request.user
+            new_topic.save()
 
             return redirect("MainApp:topics")
 
@@ -48,6 +54,10 @@ def new_topic(request):
 @login_required
 def new_entry(request, topic_id):
     topic = Topic.objects.get(id=topic_id)
+
+    if topic.owner != request.user:
+        raise Http404
+
     if request.method != "POST":
         form = EntryForm()
     else:
@@ -68,6 +78,9 @@ def new_entry(request, topic_id):
 def edit_entry(request, entry_id):
     entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
+
+    if topic.owner != request.user:
+        raise Http404
 
     if request.method != "POST":
         form = EntryForm(instance=entry)
