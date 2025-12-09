@@ -14,7 +14,7 @@ def index(request):
 def topics(request):
     topics = Topic.objects.filter(owner=request.user).order_by("date_added")
 
-    context = {"T": topics}
+    context = {"topics": topics}
 
     return render(request, "MainApp/topics.html", context)
 
