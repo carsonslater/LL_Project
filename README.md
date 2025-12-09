@@ -17,34 +17,39 @@ A simple web application built with Django that allows users to keep a log of to
 
 ## Setup & Installation
 
-1.  **Clone the repository:**
+1. **Clone the repository:**
+
     ```bash
     git clone <repository-url>
     cd <repository-directory>
     ```
 
-2.  **Create and activate a virtual environment:**
+2. **Create and activate a virtual environment:**
+
     ```bash
     python3 -m venv .venv
     source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
     ```
 
-3.  **Install dependencies:**
+3. **Install dependencies:**
+
     ```bash
     pip install -r requirements.txt
     ```
 
-4.  **Apply database migrations:**
+4. **Apply database migrations:**
+
     ```bash
     python manage.py migrate
     ```
 
-5.  **Run the development server:**
+5. **Run the development server:**
+
     ```bash
     python manage.py runserver
     ```
 
-6.  Access the application at `http://localhost:8000`.
+6. Access the application at `http://localhost:8000`.
 
 ## Notes
 
